@@ -1,2 +1,2 @@
 # coninput
-convert a tag into input
+convert a tag with only text into input
