@@ -10,7 +10,7 @@ coninput is based on *[jQuery](http://www.jquery.com)*
 <script type="text/javascript" src="path-to-jquery-file"></script> /*  */
 <script type="text/javascript" src="scripts/coninput.js"></script>
 <script type="text/javascript" src="scripts/scripts.js"></script> /* your js file */
-
+```
 
 now add the **coninput class to the tag you want to make editable
 
