@@ -17,7 +17,7 @@ now add the **coninput class to the tag you want to make editable
 ```html
 <div class="coninput coninput-materialize demoClass">250</div>
 <div class="coninput coninput-materialize demoClass">500</div>
-
+```
 
 ```javacript
 coninput({
@@ -27,12 +27,14 @@ coninput({
 	.....
 	other options
 });
+```
 
 call the coninput function inside any event such as click, as shown in the example
 currently all the options are compulsory, we'll make them optional in coming updates
 
 We'll make them optional in coming updates.
 
+```javascript
 $('body').on('click', '.coninput', function() {
 	coninput({
 		'this': $(this),
@@ -43,3 +45,6 @@ $('body').on('click', '.coninput', function() {
 		'inputLabel': ''
 	});
 });
+```
+
+License: [CC](https://creativecommons.org/licenses/by/3.0/)
