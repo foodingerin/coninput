@@ -1,23 +1,44 @@
-(function() {
+/* coninput.js */
 
-	var tagValue = $('.coninput').html();
+var coninput = function(object) {
 
-	var coninput = function(id, placeholder, type, inputClass, inputLabel) {
+	var tagValue = object['this'].html();
 
-		/* INPUT WITH MATERIALIZE THEME
-		DO NOT FORGET TO ADD MATERIALIZE FRAMEWORK BEFORE USING THIS THEME
-		visit materializecss.com for more details
-		 */
+	/* INPUT WITH MATERIALIZE THEME
+	DO NOT FORGET TO ADD MATERIALIZE FRAMEWORK BEFORE USING THIS THEME
+	visit materializecss.com for more details
+	 */
 
-	 	$('.coninput-materialize').html('<div class="input-field"><input placeholder="' + placeholder + '" id="' + id + '" type="' + 
-	 	type + '" class=validate "' + inputClass + '" value="' + tagValue + '"><label for="' + id + '">' + inputLabel + '</label></div>');
+	if(object['this'].children('input').size() == 0) {
+		object['this'].html('<div class="input-field"><input placeholder="' + object['placeholder'] + '" id="' + object['id'] + '" type="' + 
+ 	object['type'] + '" class=validate "' + object['inputClass'] + '" value="' + tagValue + '"><label for="' + object['id'] + '">' + object['inputLabel'] + '</label></div>');
 
-	 	/* DEFAULT STYLE INPUT */
+ 	/* DEFAULT STYLE INPUT */
 
-	 	$('.coninput-default').html(inputLabel + '<input id="' + id + '" class="' + inputClass + '" type="' + type + '"  placeholder="' + placeholder + '"/>');
+	 	object['this'].html(object['inputLabel'] + '<input id="' + object['id'] + '" class="' + object['inputClass'] + '" type="' + object['type'] + '"  placeholder="' + object['placeholder'] + '" value="' + tagValue + '"/>');
+	}
 
+ };
 
+$(function() {
+	
+	var checkKeyPressed = function(key) {
+		key = key || window.event;
 
-	 };
+		$('.coninput input').each(function() {
+			if(key.keyCode == 27 && $(this).children().size() != 0) {
+				$(this).html($(this).children().val());
+			}
+		});
+
+	}
+
+	document.onkeydown = checkKeyPressed;
+
+	$('body').on('blur', '.coninput',  function() {
+		if($(this).children('input').size() != 0) {
+			$(this).html($(this).children('input').val());
+		}
+	});
 
 });
